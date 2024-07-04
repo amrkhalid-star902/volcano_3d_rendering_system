@@ -48,7 +48,7 @@ There are two modes in ETC1: the ‘individual’ mode and the ‘differential�
 
 <br>
 
-![Texel data format of ETC1  ](img/word_pixels.jpg)
+![Texel data format of ETC1  ](img/ETC_modes.jpg)
 
 
 
