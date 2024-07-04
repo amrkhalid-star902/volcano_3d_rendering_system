@@ -38,6 +38,17 @@ he data for a block is stored as a number of bytes, q0, q1, q2, q3, q4, q5, q6, 
 
 Each 64-bit word contains information about a 4×4 pixel block as shown in the below figure.
 
+<br>
+
+![Pixel layout for ETC1 block  ](img/word_pixels.jpg)
+
+<br>
+
+There are two modes in ETC1: the ‘individual’ mode and the ‘differential’ mode. Which mode is active for a particular 4×4 block is controlled by bit 33, which we call diff bit. If diff bit = 0, the ‘individual’ mode is chosen, and if diff bit = 1, then the ‘differential’ mode is chosen. he bit layout for the two modes are different: The bit layout for the individual mode is shown in the below figure **part a** and **part c** , and the bit layout for the differential mode is laid out in **part b** and **part c**.
+
+<br>
+
+![Texel data format of ETC1  ](img/word_pixels.jpg)
 
 
 
