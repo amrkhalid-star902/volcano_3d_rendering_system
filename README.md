@@ -100,6 +100,8 @@ After obtaining the base color, the operations are the same for the two modes �
 
 Next, we identify which modifier value to use from the modifier table using the two ‘pixel index’ bits. The pixel index bits are unique for each pixel. For instance, the pixel index for **pixel d** can be found in bits 19 (most significant bit, MSB), and 3 (least significant bit, LSB). Note that the pixel index for a particular texel is always stored in the same bit position, irrespectively of bits diff bit and flip bit. The pixel index bits are decoded using the below Table. If, for instance, the pixel index bits are 01b = 1, and the modifier table [-29, -9, 9, 29] is used, then the modifier value selected for that pixel is 29. This modifier value is now used to additively modify the base color. For example, if we have the base color (231, 8, 16), we should add the modifier value 29 to all three components: (231+29, 8+29, 16+29) resulting in (260, 37, 45). These values are then clamped to [0..255], resulting in the color (255, 37, 45), and we are finished decoding the texel.
 
+<br>
+
 ![ETC value table](img/value_table.jpg)
 
 
