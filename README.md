@@ -22,6 +22,7 @@ There are a few requirements for efficient texture compression in mobile devices
 A fixed compression rate is required for straightforward address computations, and the
 number of indirect look-ups for the compression should be limited. Then, decompression should be fast and easytoimplementin hardwareto keepthe pipelinelatency short.
 
-
+#### ETC1 Compressed Texture Image Formats
+The compression technique used in this project is called Ericsson Texture Comperssion. 
 
 
