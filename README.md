@@ -94,7 +94,7 @@ In the ‘differential’ mode (diff bit = 1), the base color for subblock 1 is 
 
 After obtaining the base color, the operations are the same for the two modes ‘individual’ and ‘differential’. First a table is chosen using the table codewords: For subblock 1, table codeword 1 is used (bits 39..37), and for subblock 2, table codeword 2 is used (bits 36..34), see the below Table. The table codeword is used to select one of eight modifier tables. For instance, if the table code word is 010b = 2, then the modifier table [-29, -9, 9, 29] is selected. Note that the values in the below Table are valid for all textures and can therefore be hardcoded into the decompression unit.
 
-![ETC modifier table](img/ETC_subblock.jpg)
+![ETC modifier table](img/Index_table.jpg)
 
 
 
