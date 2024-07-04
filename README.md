@@ -80,7 +80,7 @@ In both modes, the 4×4 block is divided into two subblocks of either size 2×4 
 
 <br>
 
-![Different ETC subblocks](img/ETC_modes.jpg)
+![Different ETC subblocks](img/ETC_subblock.jpg)
 
 
 
