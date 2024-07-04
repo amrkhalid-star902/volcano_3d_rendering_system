@@ -90,4 +90,11 @@ In the ‘individual’ mode (diff bit = 0), the base color for subblock 1 is de
 
 In the ‘differential’ mode (diff bit = 1), the base color for subblock 1 is derived from the five-bit codewords R, G and B. These five-bit codewords are extended to eight bits by replicating the top three highest-order bits to the three lowest order bits. For instance, if R = 28 = 11100b, the resulting eight-bit red color component becomes 11100111b = 231. Likewise, if G = 4 = 00100b and B = 3 = 00011b, the green and blue components become 00100001b = 33 and 00011000b = 24 respectively. Thus, in this example, the base color for subblock 1 is (231, 33, 24). The five-bit representation for the base color of subblock 2 is obtained by modifying the five-bit codewords R, G and B by the codewords Rd, Gd and Bd. Each of Rd, Gd and Bd is a three-bit two’s-complement number that can hold values between -4 and +3. For instance, if R= 28 as above, an Rd = 100b = -4, then the five-bit representation for the red color component is 28+(-4) = 24 = 11000b, which is then extended to eight bits, to 11000110b = 198. Likewise, if G = 4, Gd = 2, B = 3 and Bd = 0, the base color of subblock 2 will be RGB = (198, 49, 24).
 
+<br>
+
+After obtaining the base color, the operations are the same for the two modes ‘individual’ and ‘differential’. First a table is chosen using the table codewords: For subblock 1, table codeword 1 is used (bits 39..37), and for subblock 2, table codeword 2 is used (bits 36..34), see the below Table. The table codeword is used to select one of eight modifier tables. For instance, if the table code word is 010b = 2, then the modifier table [-29, -9, 9, 29] is selected. Note that the values in the below Table are valid for all textures and can therefore be hardcoded into the decompression unit.
+
+![ETC modifier table](img/ETC_subblock.jpg)
+
+
 
