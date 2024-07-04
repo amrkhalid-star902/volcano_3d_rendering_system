@@ -50,6 +50,38 @@ There are two modes in ETC1: the ‘individual’ mode and the ‘differential�
 
 ![Texel data format of ETC1  ](img/ETC_modes.jpg)
 
+<br>
+
+In the context of ETC1 (Ericsson Texture Compression), individual mode and differential mode are two different methods for encoding color information within a 4x4 pixel block. These modes determine how the base colors for the sub-blocks are represented and subsequently used during decompression. 
+
+**Individual Mode**
+1. Base Colors:
+   - Each 4x4 block is divided into two 2x4 or 4x2 sub-blocks.
+   - Each sub-block has its own set of base colors (R1, G1, B1 for the first sub-block and R2, G2, B2 for the second sub-block).
+   - The base colors are directly encoded in the compressed data.
+2. Usage:
+   - This mode is used when there is a significant difference in color between the two sub-blocks.
+   - It allows for more distinct color representation within a block, making it suitable for textures with sharp transitions or varying colors.
+
+  <br>
+  
+**Differential  Mode**
+1. Base Colors:
+   - A single base color is specified for the entire 4x4 block (R, G, B).
+   - The second color for the sub-blocks is derived using differential values (Rd, Gd, Bd) from the first color.
+   - The differential values are encoded as small signed deltas.
+2. Usage:
+   - This mode is used when the colors within the block are similar or when there is a smooth gradient between the sub-blocks.
+   - It provides more efficient encoding for subtle color variations and gradients.
+ 
+<br>
+
+In both modes, the 4×4 block is divided into two subblocks of either size 2×4 or 4×2. This is controlled by bit 32, which we call flip bit. If flip bit = 0, the block is divided into two 2×4 subblocks side-by-side. If flip bit = 1, the block is divided into two 4×2 subblocks on top of each other, as shown in the below figure.
+
+<br>
+
+![Different ETC subblocks](img/ETC_modes.jpg)
+
 
 
 
