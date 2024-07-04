@@ -14,6 +14,14 @@ Texture mapping technique is not only useful for 3D modeling, but for 3D renderi
 - Textures can also be added or subtracted to provide more detail or hide features you don't want the public to see.
 - Textures can help 3D models look more 3D and less 2D.
 
+### Texture Compression
+Texture compression has been proposed to reduce memory bandwidth. The basic idea
+is to use compression on the texture images. The aim is to save memory bandwidth
+without degrading the generated image quality too much. 
+There are a few requirements for efficient texture compression in mobile devices.
+A fixed compression rate is required for straightforward address computations, and the
+number of indirect look-ups for the compression should be limited. Then, decompression should be fast and easytoimplementin hardwareto keepthe pipelinelatency short.
+
 
 
 
