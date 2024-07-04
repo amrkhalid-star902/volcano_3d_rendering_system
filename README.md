@@ -25,7 +25,20 @@ number of indirect look-ups for the compression should be limited. Then, decompr
 #### ETC1 Compressed Texture Image Formats
 The compression technique used in this project is called Ericsson Texture Comperssion. The texture is described as a number of 4×4 pixel blocks. If the texture (or a particular mip-level) is smaller than 4 pixels in any dimension (such as a 2×2 or a 8×1 texture), the texture is found in the upper left part of the block(s), and the rest of the pixels are not used. For instance, a texture of size 4×2 will be placed in the upper half of a 4×4 block, and the lower half of the pixels in the block will not be accessed.
 
-![Pixel layout for 8x8 texture using ETC1 compression  ](img/texture_mapping.jpg)
+Pixel a1 (see the below figure) of the first block in memory will represent the texture coordinate (u=0, v=0). Pixel a2 in the second block in memory will be adjacent to pixel m1 in the first block, etc. until the width of the texture. Then pixel a3 in the following block (third block in memory for a 8×8 texture) will be adjacent to pixel d1 in the first block, etc. until the height of the texture. The data storage for an 8×8 texture using the first, second, third and fourth block if stored in that order in memory would have the texels encoded in the same order as a simple linear format as if the bytes describing the pixels came in the following memory order: a1 e1 i1 m1 a2 e2 i2 m2 b1 f1 i1 n1 b2 f2 i2 n2 c1 g1 k1 o1 c2 g2 k2 o2 d1 h1 l1 p1 d2 h2 l2 p2 a3 e3 i3 m3 a4 e4 i4 m4 b3 f3 i3 n3 b4 f4 i4 n4 c3 g3 k3 o3 c4 g4 k4 o4 d3 h3 l3 p3 d4 h4 l4 p4.
+<br>
+<br>
+
+![Pixel layout for 8x8 texture using ETC1 compression  ](img/8x8_texture_layout.jpg)
+
+Note how pixel a2 in the second block is adjacent to pixel m1 in the first block. The number of bits that represent a 4×4 texel block is 64 bits.
+he data for a block is stored as a number of bytes, q0, q1, q2, q3, q4, q5, q6, q7, where byte q0 is located at the lowest memory address and q7 at the highest.
+
+<br>
+
+Each 64-bit word contains information about a 4×4 pixel block as shown in the below figure.
+
+
 
 
 
